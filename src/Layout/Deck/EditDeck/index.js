@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory, Link } from "react-router-dom";
 import { readDeck, updateDeck } from "../../../utils/api";
 
 function EditDeck() {
@@ -45,11 +45,11 @@ description and name to object deck*/
   return (
     <>
       <div className="border bg-light row align-items-center p-1">
-        <a href="/">
+        <Link to="/">
           <i className="bi bi-house-fill"></i> Home
-        </a>
+        </Link>
         <p className="text-secondary my-auto">&nbsp;/&nbsp;</p>
-        <a href={`/decks/${deckId}`}>{deck.name}</a>
+        <Link to={`/decks/${deckId}`}>{deck.name}</Link>
         <p className="text-secondary my-auto">&nbsp;/&nbsp;</p>
         <p className="text-secondary my-auto">Edit Deck</p>
       </div>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { createDeck } from "../../../utils/api";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
@@ -30,9 +30,9 @@ function CreateDeck() {
     <>
       <div className="container">
         <div className="border mt-2 bg-light p-2 row">
-          <a href="/">
+          <Link to="/">
             <i className="bi bi-house-fill"></i> Home
-          </a>
+          </Link>
           <p className="text-secondary my-auto">&nbsp;/&nbsp;</p>
           <p className="text-secondary my-auto">Create Deck</p>
         </div>

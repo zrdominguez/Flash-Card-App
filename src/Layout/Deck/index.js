@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory, Link } from "react-router-dom";
 import { readDeck, deleteDeck, deleteCard } from "../../utils/api";
 //this is the Deck View Component
 function Deck() {
@@ -55,9 +55,9 @@ function Deck() {
     <>
       <div className="container">
         <div className="border mt-2 bg-light p-2 row">
-          <a href="/">
+          <Link to="/">
             <i className="bi bi-house-fill"></i> Home
-          </a>
+          </Link>
           <p className="text-secondary my-auto">&nbsp;/&nbsp;</p>
           <p className="text-secondary my-auto">{deck.name}</p>
         </div>

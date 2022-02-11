@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { readDeck } from "../../../utils/api";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory, Link } from "react-router-dom";
 import { createCard } from "../../../utils/api";
 import CardForm from "../CardForm";
 
@@ -46,11 +46,11 @@ function AddCard() {
   return (
     <>
       <div className="border bg-light row align-items-center p-1">
-        <a href="/">
+        <Link to="/">
           <i className="bi bi-house-fill"></i> Home
-        </a>
+        </Link>
         <p className="text-secondary my-auto">&nbsp;/&nbsp;</p>
-        <a href={`/decks/${deckId}`}>{deck.name}</a>
+        <Link to={`/decks/${deckId}`}>{deck.name}</Link>
         <p className="text-secondary my-auto">&nbsp;/&nbsp;</p>
         <p className="text-secondary my-auto">Add Card</p>
       </div>
