@@ -25,6 +25,28 @@ function StudyDeck() {
     }
   }
 
+  const flipHandler = () => {
+    if (!flip) return setFlip(!flip);
+  };
+
+  const nextHandler = () => {
+    if (counter + 1 < deck.cards.length) {
+      setCounter((counter) => counter + 1);
+      return setFlip(!flip);
+    }
+    //calls restart message when when counter === deck.cards.length
+    restartMessage();
+  };
+  /*function that checks to see if enough
+cards are in cards array to study*/
+  function checkCardAmount() {
+    return deck.cards.length < 3
+      ? `You need atleast 3 cards to study. There are ${deck.cards.length} cards in this deck`
+      : flip === false
+      ? deck.cards[counter].front
+      : deck.cards[counter].back;
+  }
+
   useEffect(() => {
     const abortController = new AbortController();
     readDeck(deckId, abortController.signal)
@@ -61,13 +83,7 @@ function StudyDeck() {
         <h5 className="ml-3">{`Card ${counter + 1} of ${
           deck.cards?.length
         }`}</h5>
-        <p className="ml-3">{`${
-          deck.cards.length < 3
-            ? `You need atleast 3 cards to study. There are ${deck.cards.length} cards in this deck`
-            : flip === false
-            ? deck.cards[counter].front
-            : deck.cards[counter].back
-        }`}</p>
+        <p className="ml-3">{`${checkCardAmount()}`}</p>
         <div className="ml-3">
           {/*flip button on shows when deck.cards is atleast 3
           elements long and only changes state variable 'flip' to true*/}
@@ -75,26 +91,14 @@ function StudyDeck() {
             className={`btn btn-secondary ${
               deck.cards.length >= 3 ? "d-inline-block" : "d-none"
             }`}
-            onClick={() => {
-              if (!flip) return setFlip(!flip);
-            }}
+            onClick={flipHandler}
           >
             Flip
           </button>
           {/*next button only appears when card is flipped, iterates counter 
           by 1 and sets flip state variable back to false*/}
           {flip ? (
-            <button
-              className="btn btn-primary ml-2 "
-              onClick={() => {
-                if (counter + 1 < deck.cards.length) {
-                  setCounter((counter) => counter + 1);
-                  return setFlip(!flip);
-                }
-                //calls restart message when when counter === deck.cards.length
-                restartMessage();
-              }}
-            >
+            <button className="btn btn-primary ml-2 " onClick={nextHandler}>
               Next
             </button>
           ) : null}
