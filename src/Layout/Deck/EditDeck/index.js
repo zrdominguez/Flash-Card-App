@@ -40,7 +40,7 @@ description and name to object deck*/
     return () => {
       abortController.abort();
     };
-  }, []);
+  }, [deckId]);
 
   return (
     <>

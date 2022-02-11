@@ -37,7 +37,7 @@ function StudyDeck() {
     return () => {
       abortController.abort();
     };
-  }, []);
+  }, [deckId]);
 
   /*checks to see if deck.cards has been rendered
   before using cards array for react elements*/

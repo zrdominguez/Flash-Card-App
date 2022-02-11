@@ -46,7 +46,7 @@ function Deck() {
     return () => {
       abortController.abort();
     };
-  }, []);
+  }, [deckId]);
   /*checks to see if deck.cards has been rendered
   before using cards array for react elements*/
   if (!deck.cards) return null;

@@ -30,7 +30,7 @@ function EditCard() {
     return () => {
       abortController.abort();
     };
-  }, []);
+  }, [cardId]);
 
   const submitHandler = (e) => {
     e.preventDefault();
