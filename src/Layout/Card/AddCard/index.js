@@ -27,7 +27,7 @@ function AddCard() {
     return () => {
       abortController.abort();
     };
-  }, []);
+  }, [deckId]);
 
   const submitHandler = (e) => {
     e.preventDefault();

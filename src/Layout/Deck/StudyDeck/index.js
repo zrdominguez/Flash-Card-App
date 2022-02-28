@@ -76,9 +76,12 @@ cards are in cards array to study*/
         <p className="text-secondary my-auto">&nbsp;/&nbsp;</p>
         <p className="text-secondary my-auto">Study</p>
       </div>
+      
       <h3 className="my-3">{`Study: ${deck.name}`}</h3>
+
       {/*if there is not enought cards to study, display not enough cards*/}
       {deck.cards.length < 3 ? <h5>Not Enough Cards</h5> : null}
+      
       <div className="border mt-2 py-3">
         <h5 className="ml-3">{`Card ${counter + 1} of ${
           deck.cards?.length
